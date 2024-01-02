@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h> 
 
 #define LINELEN (80)
 
 int lencmp(const char *str1, const char *str2);
 int lexcmp(const char *str1, const char *str2);
+int digcmp(const char *str1, const char *str2);
 char *mygets(char *buf, int len);
 
 int main(int argc, char *argv[])
