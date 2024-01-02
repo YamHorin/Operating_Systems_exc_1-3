@@ -5,16 +5,18 @@
 int mystrcmp(const char *str1, const char *str2)
 {
 	int val =0 , val2=0 ;
-    char * c = str1;
-    while (*c)
+    int c = strlen(str1);
+    for (int i=0 ; i<c ; i++)
     {
-        if (isdigit(*c))
+        char w = str1[i];
+        if (isdigit(w))
             val++;
     }
-    c = str2;
-    while (*c)
+    c = strlen(str2);
+    for (int i=0 ; i<c ; i++)
     {
-        if (isdigit(*c))
+        char w = str2[i];
+        if (isdigit(w))
             val2++;
     }
 	
