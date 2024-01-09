@@ -39,11 +39,17 @@ int main(int argc, char *argv[])
 			return -1;
 		if (rc==0)
 		{
-
+			char* myargv[4];
+			myargv[0] = start;
+			myargv[1] = str1;
+			myargv[2] = str2;
+			myargv[3] = NULL;
+			execvp(myargv[0] , myargv);
 		}
 		else
 		{
 			
+
 		}
 		
 		fflush(stdout);
