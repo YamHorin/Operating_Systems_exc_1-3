@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/wait.h>
 
 #define LINELEN (80)
 
@@ -16,14 +19,14 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 		return -1;
-	
-	cmpfunc = argv[1];
+	char start [100] = "./";
+	strcpy(cmpfunc , argv[1]);
+
 	// if (!strcmp(argv[1], "lexcmp"))
 	// 	cmpfunc = lexcmp;
 	// else if (!strcmp(argv[1], "lencmp"))
 	// 	cmpfunc = lencmp;
-	else
-		return -1;
+
 
 	while (1)
 	{
