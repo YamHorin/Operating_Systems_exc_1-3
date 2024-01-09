@@ -1,30 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h> 
 
 #define LINELEN (80)
 
 int lencmp(const char *str1, const char *str2);
 int lexcmp(const char *str1, const char *str2);
-int digcmp(const char *str1, const char *str2);
 char *mygets(char *buf, int len);
 
 int main(int argc, char *argv[])
 {
-	int(*cmpfunc)(const char *, const char *) = NULL;
+	char cmpfunc [100];
 	char str1[LINELEN + 1];
 	char str2[LINELEN + 1];
 
 	if (argc != 2)
 		return -1;
 	
-	if (!strcmp(argv[1], "lexcmp"))
-		cmpfunc = lexcmp;
-	else if (!strcmp(argv[1], "lencmp"))
-		cmpfunc = lencmp;
-    else if (!strcmp(argv[1], "digcmp"))
-		cmpfunc = digcmp;
+	cmpfunc = argv[1];
+	// if (!strcmp(argv[1], "lexcmp"))
+	// 	cmpfunc = lexcmp;
+	// else if (!strcmp(argv[1], "lencmp"))
+	// 	cmpfunc = lencmp;
 	else
 		return -1;
 
@@ -34,7 +31,8 @@ int main(int argc, char *argv[])
 			break;
 		if (mygets(str2, LINELEN) == NULL)
 			break;
-		printf("%d\n", cmpfunc(str1, str2));
+		
+		
 		fflush(stdout);
 	}
 	return 0;
@@ -60,30 +58,6 @@ int lexcmp(const char *str1, const char *str2)
 		return 1;
 	if (val > 0)
 		return 2;
-	return 0;
-}
-int digcmp(const char *str1, const char *str2)
-{
-	int val =0 , val2=0 ;
-    int c = strlen(str1);
-    for (int i=0 ; i<c ; i++)
-    {
-        char w = str1[i];
-        if (isdigit(w))
-            val++;
-    }
-    c = strlen(str2);
-    for (int i=0 ; i<c ; i++)
-    {
-        char w = str2[i];
-        if (isdigit(w))
-            val2++;
-    }
-	
-	if (val < val2)
-		return 2;
-	if (val > val2)
-		return 1;
 	return 0;
 }
 
