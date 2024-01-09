@@ -5,4 +5,4 @@ make:
 	gcc digcmp.c -Wall -o digcmp
 
 clean:
-	rm -f lencmp lexcmp digcmp
+	rm -f lencmp lexcmp digcmp loopcmp

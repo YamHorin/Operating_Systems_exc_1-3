@@ -43,6 +43,10 @@ int main(int argc, char *argv[])
 			myargv[2] = strdup(str2);
 			myargv[3] = NULL;
 			execvp(myargv[0] , myargv);
+			free(myargv[0]);
+			free(myargv[1]);
+			free(myargv[2]);
+			return -2;
 		}
 		else
 		{
@@ -51,9 +55,9 @@ int main(int argc, char *argv[])
 			printf("%d\n",WEXITSTATUS(status));
 
 		}
-		free(start);
 		fflush(stdout);
 	}
+	free(start);
 	return 0;
 }
 
