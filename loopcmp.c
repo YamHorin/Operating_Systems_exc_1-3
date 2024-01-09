@@ -15,6 +15,7 @@ char *mygets(char *buf, int len);
 
 int main(int argc, char *argv[])
 {
+	char w[3] = "./";
 	char str1[LINELEN + 1];
 	char str2[LINELEN + 1];
 
@@ -22,8 +23,8 @@ int main(int argc, char *argv[])
 		return -1;
 	char * start = (char*)malloc(strlen(argv[1])*sizeof(char)+3);
 
-	strcmp(start ,"./");
-	strcmp(start ,argv[1]);
+	strcat(start ,w);
+	strcat(start ,argv[1]);
 
 	while (1)
 	{
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
 			printf("%d\n",WEXITSTATUS(status));
 
 		}
-		
+		free(start);
 		fflush(stdout);
 	}
 	return 0;
