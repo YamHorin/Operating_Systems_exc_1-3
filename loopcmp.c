@@ -3,7 +3,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <sys/types.h>
 #include <sys/wait.h>
+
 
 #define LINELEN (80)
 
@@ -40,15 +42,17 @@ int main(int argc, char *argv[])
 		if (rc==0)
 		{
 			char* myargv[4];
-			myargv[0] = start;
-			myargv[1] = str1;
-			myargv[2] = str2;
+			myargv[0] = strdup(start);
+			myargv[1] = strdup(str1);
+			myargv[2] = strdup(str2);
 			myargv[3] = NULL;
 			execvp(myargv[0] , myargv);
 		}
 		else
 		{
-			
+			int status;
+			wait(&status);
+			printf("%d\n",WEXITSTATUS(status));
 
 		}
 		
