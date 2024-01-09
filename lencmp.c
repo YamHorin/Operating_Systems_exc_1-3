@@ -3,14 +3,12 @@
 // 
 int mystrcmp(const char *str1, const char *str2)
 {
-	int val , val2;
-
-	val = strlen(str1);
-	val2 = strlen(str1);
-	if (val < val2)
-		return 2;
-	if (val > val2)
+	int val;
+	val = strlen(str1) - strlen(str2);
+	if (val < 0)
 		return 1;
+	if (val > 0)
+		return 2;
 	return 0;
 }
 
