@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		return -1;
 	char start [100] = "./";
 	strcpy(cmpfunc , argv[1]);
-
+	strcmp(start , cmpfunc);
 	// if (!strcmp(argv[1], "lexcmp"))
 	// 	cmpfunc = lexcmp;
 	// else if (!strcmp(argv[1], "lencmp"))
@@ -34,7 +34,17 @@ int main(int argc, char *argv[])
 			break;
 		if (mygets(str2, LINELEN) == NULL)
 			break;
-		
+		int rc = fork();
+		if (rc==-1)
+			return -1;
+		if (rc==0)
+		{
+
+		}
+		else
+		{
+			
+		}
 		
 		fflush(stdout);
 	}
