@@ -6,11 +6,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-
 #define LINELEN (80)
-
-int lencmp(const char *str1, const char *str2);
-int lexcmp(const char *str1, const char *str2);
 char *mygets(char *buf, int len);
 
 int main(int argc, char *argv[])
@@ -61,28 +57,6 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-int lencmp(const char *str1, const char *str2)
-{
-	int val;
-	val = strlen(str1) - strlen(str2);
-	if (val < 0)
-		return 1;
-	if (val > 0)
-		return 2;
-	return 0;
-}
-
-int lexcmp(const char *str1, const char *str2)
-{
-	int val;
-
-	val = strcmp(str1, str2);
-	if (val < 0)
-		return 1;
-	if (val > 0)
-		return 2;
-	return 0;
-}
 
 char *mygets(char *buf, int len)
 {
