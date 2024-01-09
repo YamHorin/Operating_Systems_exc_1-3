@@ -15,20 +15,15 @@ char *mygets(char *buf, int len);
 
 int main(int argc, char *argv[])
 {
-	char cmpfunc [100];
 	char str1[LINELEN + 1];
 	char str2[LINELEN + 1];
 
 	if (argc != 2)
 		return -1;
-	char start [100] = "./";
-	strcpy(cmpfunc , argv[1]);
-	strcmp(start , cmpfunc);
-	// if (!strcmp(argv[1], "lexcmp"))
-	// 	cmpfunc = lexcmp;
-	// else if (!strcmp(argv[1], "lencmp"))
-	// 	cmpfunc = lencmp;
+	char * start = (char*)malloc(strlen(argv[1])*sizeof(char)+3);
 
+	strcmp(start ,"./");
+	strcmp(start ,argv[1]);
 
 	while (1)
 	{
