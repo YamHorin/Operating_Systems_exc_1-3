@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
 			break;
 		int rc = fork();
 		if (rc==-1)
-			return -1;
-		if (rc==0)
+			return -2;
+		else if (rc==0)
 		{
 			char* myargv[4];
 			myargv[0] = strdup(start);
